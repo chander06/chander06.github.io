@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
 import { Link } from 'react-router';
 import { Mail, Phone, ArrowRight, Check, User, Building2, Rocket } from 'lucide-react';
 
@@ -693,7 +692,7 @@ function ContactCard({
         <div className="text-[#0066cc] mb-3">{icon}</div>
         <div className="text-xs text-[#6b6b6b] mb-1">{title}</div>
         {subtitle && <div className="text-xs text-[#6b6b6b] mb-1">{subtitle}</div>}
-        <div className="text-sm font-medium text-[#1a1a1a]">{value}</div>
+        <div className="text-sm font-medium text-[#1a1a1a] break-all">{value}</div>
       </a>
     </ScrollReveal>
   );
