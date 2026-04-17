@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'motion/react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { Mail, Phone, ArrowRight, Check, User, Building2, Rocket } from 'lucide-react';
 
@@ -57,32 +56,23 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column */}
             <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
+              <div>
                 <div className="inline-flex items-center gap-2 bg-[#1a7a4a]/10 text-[#1a7a4a] px-4 py-2 rounded-full text-sm font-medium mb-6">
                   <Check className="w-4 h-4" />
-                  Consulenza 100% gratuita
+                  <span className="whitespace-nowrap">Consulenza 100% gratuita</span>
                 </div>
 
-                <h1 className="text-6xl lg:text-7xl font-serif italic text-[#1a1a1a] leading-[1.1] mb-6">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-[#1a1a1a] leading-[1.1] mb-6">
                   Paga meno tasse. Legalmente.
                 </h1>
 
-                <p className="text-xl text-[#6b6b6b] leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg md:text-xl text-[#6b6b6b] leading-relaxed max-w-xl">
                   Aiutiamo le PMI italiane a ottimizzare il carico fiscale attraverso strategie
                   personalizzate e completamente conformi alla normativa.
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-wrap gap-4"
-              >
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="#contatti"
                   className="bg-[#1a1a1a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#000] transition-colors inline-flex items-center gap-2"
@@ -97,15 +87,10 @@ export default function Home() {
                   Vedi i risultati
                   <ArrowRight className="w-4 h-4" />
                 </a>
-              </motion.div>
+              </div>
 
               {/* Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-8"
-              >
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-8">
                 <div>
                   <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-1">€82k</div>
                   <div className="text-xs md:text-sm text-[#6b6b6b]">Risparmio medio annuale</div>
@@ -118,17 +103,12 @@ export default function Home() {
                   <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-1">€0</div>
                   <div className="text-xs md:text-sm text-[#6b6b6b]">Costo consulenza</div>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right Column - Chart Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
-            >
-              <FloatingCard>
+            <div className="relative">
+              <GlassCard>
                 <div className="p-8">
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">Risparmio medio</h3>
@@ -136,46 +116,36 @@ export default function Home() {
                   </div>
 
                   {/* Custom Chart */}
-                  <div className="h-64 flex items-end justify-center gap-12 px-8 relative">
+                  <div className="h-64 flex items-end justify-center gap-8 sm:gap-12 px-4 sm:px-8 relative">
                     {/* Y-axis labels */}
-                    <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-xs text-[#6b6b6b]">
+                    <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-[10px] sm:text-xs text-[#6b6b6b]">
                       <div>€310k</div>
-                      <div>€230k</div>
+                      <div className="hidden sm:block">€230k</div>
                       <div>€155k</div>
-                      <div>€80k</div>
+                      <div className="hidden sm:block">€80k</div>
                       <div>€0</div>
                     </div>
 
                     {/* Bars */}
                     <div className="flex flex-col items-center justify-end h-full">
-                      <motion.div
-                        initial={{ height: 0 }}
-                        animate={{ height: '71%' }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                        className="w-20 bg-[#e5e5e7] rounded-t-xl"
-                      />
-                      <div className="text-sm text-[#6b6b6b] mt-3">Prima</div>
+                      <div className="w-16 sm:w-20 bg-[#e5e5e7] rounded-t-xl transition-all duration-1000 ease-out" style={{ height: '71%' }} />
+                      <div className="text-xs sm:text-sm text-[#6b6b6b] mt-3 whitespace-nowrap">Prima</div>
                     </div>
 
                     <div className="flex flex-col items-center justify-end h-full">
-                      <motion.div
-                        initial={{ height: 0 }}
-                        animate={{ height: '44.5%' }}
-                        transition={{ duration: 1, delay: 0.7 }}
-                        className="w-20 bg-[#86868b] rounded-t-xl"
-                      />
-                      <div className="text-sm text-[#6b6b6b] mt-3">Dopo</div>
+                      <div className="w-16 sm:w-20 bg-[#86868b] rounded-t-xl transition-all duration-1000 ease-out" style={{ height: '44.5%' }} />
+                      <div className="text-xs sm:text-sm text-[#6b6b6b] mt-3 whitespace-nowrap">Dopo</div>
                     </div>
                   </div>
 
                   <div className="mt-6 flex items-center justify-center">
-                    <div className="bg-[#86868b]/10 text-[#86868b] px-6 py-2 rounded-full text-sm font-medium">
+                    <div className="bg-[#86868b]/10 text-[#86868b] px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium">
                       Risparmio: €82.000/anno
                     </div>
                   </div>
                 </div>
-              </FloatingCard>
-            </motion.div>
+              </GlassCard>
+            </div>
           </div>
         </div>
       </section>
@@ -199,16 +169,14 @@ export default function Home() {
       {/* Risultati Reali Section */}
       <section id="risultati" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] mb-6">
-                Risultati reali
-              </h2>
-              <p className="text-xl text-[#6b6b6b] max-w-2xl mx-auto">
-                Casi concreti di aziende che hanno ottimizzato il loro carico fiscale
-              </p>
-            </div>
-          </ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] mb-6">
+              Risultati reali
+            </h2>
+            <p className="text-xl text-[#6b6b6b] max-w-2xl mx-auto">
+              Casi concreti di aziende che hanno ottimizzato il loro carico fiscale
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <ResultCard
@@ -246,16 +214,14 @@ export default function Home() {
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto relative">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-5xl lg:text-6xl font-serif italic text-white mb-6">
-                I nostri servizi
-              </h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Soluzioni complete per l'ottimizzazione fiscale della tua azienda
-              </p>
-            </div>
-          </ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-6xl font-serif italic text-white mb-6">
+              I nostri servizi
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Soluzioni complete per l'ottimizzazione fiscale della tua azienda
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <ServiceCard
@@ -296,16 +262,14 @@ export default function Home() {
       {/* Steps Section */}
       <section id="processo" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-20">
-              <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] mb-6">
-                Come funziona
-              </h2>
-              <p className="text-xl text-[#6b6b6b] max-w-2xl mx-auto">
-                Tre semplici step per iniziare a risparmiare sulle tasse
-              </p>
-            </div>
-          </ScrollReveal>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] mb-6">
+              Come funziona
+            </h2>
+            <p className="text-xl text-[#6b6b6b] max-w-2xl mx-auto">
+              Tre semplici step per iniziare a risparmiare sulle tasse
+            </p>
+          </div>
 
           <div className="space-y-12">
             <StepCard
@@ -332,86 +296,82 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column */}
-            <ScrollReveal>
-              <div className="space-y-8">
-                <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] leading-[1.1]">
-                  Perché Verifica Semplice
-                </h2>
+            <div className="space-y-8">
+              <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] leading-[1.1]">
+                Perché Verifica Semplice
+              </h2>
 
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="text-[#0066cc] text-2xl">◆</div>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="text-[#0066cc] text-2xl">◆</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Esperienza comprovata</h3>
+                    <p className="text-[#6b6b6b]">
+                      Oltre 10 anni di esperienza nell'ottimizzazione fiscale per PMI italiane.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="text-[#0066cc] text-2xl">◆</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">100% legale e conforme</h3>
+                    <p className="text-[#6b6b6b]">
+                      Tutte le nostre strategie sono pienamente conformi alla normativa vigente.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="text-[#0066cc] text-2xl">◆</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Consulenza gratuita</h3>
+                    <p className="text-[#6b6b6b]">
+                      La prima analisi è sempre gratuita. Scopri quanto puoi risparmiare senza impegno.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <GlassCard>
+              <div className="p-8 space-y-6">
+                <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6">Ideale per</h3>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#0066cc]/10 flex items-center justify-center flex-shrink-0">
+                      <User className="w-6 h-6 text-[#0066cc]" />
+                    </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Esperienza comprovata</h3>
-                      <p className="text-[#6b6b6b]">
-                        Oltre 10 anni di esperienza nell'ottimizzazione fiscale per PMI italiane.
-                      </p>
+                      <h4 className="font-bold text-[#1a1a1a] mb-1">Professionisti</h4>
+                      <p className="text-sm text-[#6b6b6b]">Partite IVA, consulenti, freelance</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="text-[#0066cc] text-2xl">◆</div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#0066cc]/10 flex items-center justify-center flex-shrink-0">
+                      <Building2 className="w-6 h-6 text-[#0066cc]" />
+                    </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">100% legale e conforme</h3>
-                      <p className="text-[#6b6b6b]">
-                        Tutte le nostre strategie sono pienamente conformi alla normativa vigente.
-                      </p>
+                      <h4 className="font-bold text-[#1a1a1a] mb-1">Piccole e medie imprese</h4>
+                      <p className="text-sm text-[#6b6b6b]">Da 1 a 50 dipendenti</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="text-[#0066cc] text-2xl">◆</div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#0066cc]/10 flex items-center justify-center flex-shrink-0">
+                      <Rocket className="w-6 h-6 text-[#0066cc]" />
+                    </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Consulenza gratuita</h3>
-                      <p className="text-[#6b6b6b]">
-                        La prima analisi è sempre gratuita. Scopri quanto puoi risparmiare senza impegno.
-                      </p>
+                      <h4 className="font-bold text-[#1a1a1a] mb-1">Startup e scale-up</h4>
+                      <p className="text-sm text-[#6b6b6b]">In fase di crescita e sviluppo</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
-
-            {/* Right Column */}
-            <ScrollReveal delay={0.2}>
-              <GlassCard>
-                <div className="p-8 space-y-6">
-                  <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6">Ideale per</h3>
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#0066cc]/10 flex items-center justify-center flex-shrink-0">
-                        <User className="w-6 h-6 text-[#0066cc]" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-[#1a1a1a] mb-1">Professionisti</h4>
-                        <p className="text-sm text-[#6b6b6b]">Partite IVA, consulenti, freelance</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#0066cc]/10 flex items-center justify-center flex-shrink-0">
-                        <Building2 className="w-6 h-6 text-[#0066cc]" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-[#1a1a1a] mb-1">Piccole e medie imprese</h4>
-                        <p className="text-sm text-[#6b6b6b]">Da 1 a 50 dipendenti</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#0066cc]/10 flex items-center justify-center flex-shrink-0">
-                        <Rocket className="w-6 h-6 text-[#0066cc]" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-[#1a1a1a] mb-1">Startup e scale-up</h4>
-                        <p className="text-sm text-[#6b6b6b]">In fase di crescita e sviluppo</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </GlassCard>
-            </ScrollReveal>
+            </GlassCard>
           </div>
         </div>
       </section>
@@ -423,37 +383,33 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/20 rounded-full blur-[150px]" />
 
         <div className="max-w-4xl mx-auto text-center relative">
-          <ScrollReveal>
-            <h2 className="text-5xl lg:text-7xl font-serif italic text-white mb-8 leading-[1.1]">
-              Pronto a risparmiare sulle tasse?
-            </h2>
-            <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-              Prenota una consulenza gratuita e scopri quanto puoi risparmiare legalmente.
-            </p>
-            <a
-              href="#contatti"
-              className="inline-flex items-center gap-2 bg-white text-[#1a1a1a] px-10 py-5 rounded-full font-medium hover:bg-gray-100 transition-colors text-lg"
-            >
-              Inizia ora gratuitamente
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </ScrollReveal>
+          <h2 className="text-5xl lg:text-7xl font-serif italic text-white mb-8 leading-[1.1]">
+            Pronto a risparmiare sulle tasse?
+          </h2>
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            Prenota una consulenza gratuita e scopri quanto puoi risparmiare legalmente.
+          </p>
+          <a
+            href="#contatti"
+            className="inline-flex items-center gap-2 bg-white text-[#1a1a1a] px-10 py-5 rounded-full font-medium hover:bg-gray-100 transition-colors text-lg"
+          >
+            Inizia ora gratuitamente
+            <ArrowRight className="w-5 h-5" />
+          </a>
         </div>
       </section>
 
       {/* Contact Section */}
       <section id="contatti" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] mb-6">
-                Contattaci
-              </h2>
-              <p className="text-xl text-[#6b6b6b] max-w-2xl mx-auto">
-                Siamo qui per aiutarti. Scegli il metodo che preferisci.
-              </p>
-            </div>
-          </ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-6xl font-serif italic text-[#1a1a1a] mb-6">
+              Contattaci
+            </h2>
+            <p className="text-xl text-[#6b6b6b] max-w-2xl mx-auto">
+              Siamo qui per aiutarti. Scegli il metodo che preferisci.
+            </p>
+          </div>
 
           {/* Contact Cards */}
           <div className="grid md:grid-cols-4 gap-6">
@@ -532,24 +488,6 @@ export default function Home() {
 
 // Components
 
-function FloatingCard({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div
-      animate={{
-        y: [0, -10, 0],
-      }}
-      transition={{
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-      className="bg-white/60 backdrop-blur-[20px] border border-white/40 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow"
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 function GlassCard({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-white/60 backdrop-blur-[20px] border border-white/40 rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
@@ -573,58 +511,40 @@ function ResultCard({
   savings: number;
   featured: boolean;
 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <ScrollReveal>
-      <div
-        ref={ref}
-        className="bg-white/60 backdrop-blur-[20px] border border-white/40 rounded-3xl p-8 hover:shadow-xl transition-all relative"
-      >
-        {featured && (
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1a1a1a] text-white px-4 py-1 rounded-full text-xs font-medium">
-            Caso più comune
-          </div>
-        )}
-
-        <div className="text-center mb-6">
-          <h3 className="text-xl font-bold text-[#1a1a1a] mb-1">{sector}</h3>
-          <p className="text-sm text-[#6b6b6b]">{employees}</p>
+    <div className="bg-white/60 backdrop-blur-[20px] border border-white/40 rounded-3xl p-8 hover:shadow-xl transition-all relative">
+      {featured && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1a1a1a] text-white px-4 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+          Caso più comune
         </div>
+      )}
 
-        <div className="flex gap-4 justify-center mb-6 h-48">
-          <div className="flex flex-col items-center justify-end flex-1">
-            <motion.div
-              initial={{ height: 0 }}
-              animate={isInView ? { height: `${(before / 310000) * 100}%` } : { height: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="w-full bg-[#e5e5e7] rounded-t-xl"
-            />
-            <div className="text-xs text-[#6b6b6b] mt-2">Prima</div>
-          </div>
-          <div className="flex flex-col items-center justify-end flex-1">
-            <motion.div
-              initial={{ height: 0 }}
-              animate={isInView ? { height: `${(after / 310000) * 100}%` } : { height: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="w-full bg-[#86868b] rounded-t-xl"
-            />
-            <div className="text-xs text-[#6b6b6b] mt-2">Dopo</div>
-          </div>
-        </div>
-
-        <div className="flex justify-center mb-4">
-          <div className="bg-[#86868b]/10 text-[#86868b] px-4 py-2 rounded-full text-sm font-medium">
-            Risparmio: €{(savings / 1000).toFixed(0)}k/anno
-          </div>
-        </div>
-
-        <p className="text-xs text-center text-[#6b6b6b]">
-          Ottimizzazione fiscale e gestione contributi
-        </p>
+      <div className="text-center mb-6">
+        <h3 className="text-xl font-bold text-[#1a1a1a] mb-1">{sector}</h3>
+        <p className="text-sm text-[#6b6b6b]">{employees}</p>
       </div>
-    </ScrollReveal>
+
+      <div className="flex gap-4 justify-center mb-6 h-48">
+        <div className="flex flex-col items-center justify-end flex-1">
+          <div className="w-full bg-[#e5e5e7] rounded-t-xl transition-all duration-1000 ease-out" style={{ height: `${(before / 310000) * 100}%` }} />
+          <div className="text-xs text-[#6b6b6b] mt-2 whitespace-nowrap">Prima</div>
+        </div>
+        <div className="flex flex-col items-center justify-end flex-1">
+          <div className="w-full bg-[#86868b] rounded-t-xl transition-all duration-1000 ease-out" style={{ height: `${(after / 310000) * 100}%` }} />
+          <div className="text-xs text-[#6b6b6b] mt-2 whitespace-nowrap">Dopo</div>
+        </div>
+      </div>
+
+      <div className="flex justify-center mb-4">
+        <div className="bg-[#86868b]/10 text-[#86868b] px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+          Risparmio: €{(savings / 1000).toFixed(0)}k/anno
+        </div>
+      </div>
+
+      <p className="text-xs text-center text-[#6b6b6b]">
+        Ottimizzazione fiscale e gestione contributi
+      </p>
+    </div>
   );
 }
 
@@ -638,13 +558,11 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <ScrollReveal>
-      <div className="bg-white/5 backdrop-blur-[20px] border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
-        <div className="text-sm text-gray-500 mb-4">{number}</div>
-        <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-        <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
-      </div>
-    </ScrollReveal>
+    <div className="bg-white/5 backdrop-blur-[20px] border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
+      <div className="text-sm text-gray-500 mb-4">{number}</div>
+      <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+      <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
+    </div>
   );
 }
 
@@ -658,15 +576,13 @@ function StepCard({
   description: string;
 }) {
   return (
-    <ScrollReveal>
-      <div className="flex gap-8 items-start">
-        <div className="text-8xl font-serif italic text-[#1a1a1a]/10 leading-none">{number}</div>
-        <div className="flex-1 pt-4">
-          <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">{title}</h3>
-          <p className="text-[#6b6b6b] leading-relaxed">{description}</p>
-        </div>
+    <div className="flex gap-8 items-start">
+      <div className="text-8xl font-serif italic text-[#1a1a1a]/10 leading-none">{number}</div>
+      <div className="flex-1 pt-4">
+        <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">{title}</h3>
+        <p className="text-[#6b6b6b] leading-relaxed">{description}</p>
       </div>
-    </ScrollReveal>
+    </div>
   );
 }
 
@@ -684,17 +600,15 @@ function ContactCard({
   subtitle?: string;
 }) {
   return (
-    <ScrollReveal>
-      <a
-        href={link}
-        className="block bg-white/60 backdrop-blur-[20px] border border-white/40 rounded-2xl p-6 hover:shadow-xl transition-all"
-      >
-        <div className="text-[#0066cc] mb-3">{icon}</div>
-        <div className="text-xs text-[#6b6b6b] mb-1">{title}</div>
-        {subtitle && <div className="text-xs text-[#6b6b6b] mb-1">{subtitle}</div>}
-        <div className="text-sm font-medium text-[#1a1a1a] break-all">{value}</div>
-      </a>
-    </ScrollReveal>
+    <a
+      href={link}
+      className="block bg-white/60 backdrop-blur-[20px] border border-white/40 rounded-2xl p-6 hover:shadow-xl transition-all"
+    >
+      <div className="text-[#0066cc] mb-3">{icon}</div>
+      <div className="text-xs text-[#6b6b6b] mb-1">{title}</div>
+      {subtitle && <div className="text-xs text-[#6b6b6b] mb-1">{subtitle}</div>}
+      <div className="text-sm font-medium text-[#1a1a1a] break-all">{value}</div>
+    </a>
   );
 }
 
