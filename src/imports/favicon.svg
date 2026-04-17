@@ -1,0 +1,16 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="90" fill="white"/>
+  
+  <!-- Logo VS in center -->
+  <g transform="translate(256, 256)">
+    <!-- V -->
+    <path d="M-120,-60 L-120,-30 Q-120,-10 -100,-10 L-80,-10 L-40,40 L0,-10 L20,-10 Q40,-10 40,-30 L40,-60 Q40,-80 20,-80 L-20,-80 Q-40,-80 -40,-60 L-40,-40 L-60,-10 L-80,-40 L-80,-60 Q-80,-80 -100,-80 L-120,-80 Q-120,-80 -120,-60 Z" fill="#1a1a1a"/>
+    
+    <!-- S -->
+    <path d="M60,-80 Q40,-80 40,-60 L40,-50 Q40,-30 60,-30 L80,-30 Q100,-30 100,-10 L100,0 Q100,20 80,20 L60,20 Q40,20 40,40 L40,60 Q40,80 60,80 L100,80 Q120,80 120,60 L120,50 Q120,30 100,30 L80,30 Q60,30 60,10 L60,0 Q60,-20 80,-20 L100,-20 Q120,-20 120,-40 L120,-60 Q120,-80 100,-80 L60,-80 Z" fill="#1a1a1a"/>
+  </g>
+  
+  <!-- Text: Verifica Semplice -->
+  <text x="256" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="600" fill="#1a1a1a" text-anchor="middle">Verifica Semplice</text>
+</svg>
