@@ -412,7 +412,7 @@ export default function Home() {
           </div>
 
           {/* Contact Cards */}
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <ContactCard
               icon={<Mail className="w-6 h-6" />}
               title="Email"
@@ -425,20 +425,6 @@ export default function Home() {
               subtitle="Fondatore"
               value="+39 331 996 6359"
               link="tel:+393319966359"
-            />
-            <ContactCard
-              icon={<Phone className="w-6 h-6" />}
-              title="Angelo"
-              subtitle="Co-fondatore"
-              value="+39 389 198 5065"
-              link="tel:+393891985065"
-            />
-            <ContactCard
-              icon={<Phone className="w-6 h-6" />}
-              title="Chander"
-              subtitle="Co-fondatore"
-              value="+39 377 379 6679"
-              link="tel:+393773796679"
             />
           </div>
         </div>
