@@ -88,6 +88,9 @@ export default function TermsOfService() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">Limitazione di Responsabilità</h2>
                 <p className="text-[#6b6b6b] leading-relaxed mb-4">
+                  Il sito non garantisce la veridicità, completezza o aggiornamento delle informazioni pubblicate. Alcuni contenuti possono essere generati a fini dimostrativi o sperimentali.
+                </p>
+                <p className="text-[#6b6b6b] leading-relaxed mb-4">
                   Non siamo responsabili per:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-[#6b6b6b] ml-4">
